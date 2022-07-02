@@ -3,6 +3,8 @@ package demo.sauce.utilities;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -70,4 +72,17 @@ public class BrowserUtils {
         }
         return passwords;
     }
+
+
+    public static boolean compareForEquals(List<WebElement> elements, List<String> stringValues){
+        boolean result = false;
+        for (int i = 0; i < elements.size(); i++) {
+
+            result = elements.get(i).getText().equals(stringValues.get(i));
+            System.out.println(result);
+        }
+
+        return result;
+    }
+
 }
